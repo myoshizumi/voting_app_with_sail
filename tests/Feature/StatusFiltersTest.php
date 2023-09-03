@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Http\Livewire\IdeasIndex;
 use Tests\TestCase;
 use App\Models\Idea;
 use App\Models\User;
@@ -106,11 +107,8 @@ class StatusFiltersTest extends TestCase
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
 
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
         $statusConsidering = Status::factory()->create(['name' => 'Considering']);
-        $statusInProgress = Status::factory()->create(['name' => 'InProgress']);
-        $statusImplemented = Status::factory()->create(['name' => 'Implemented']);
-        $statusClosed = Status::factory()->create(['name' => 'Closed']);
+        $statusInProgress = Status::factory()->create(['name' => 'In Progress']);
 
         Idea::factory()->create([
             'user_id' => $user->id,
@@ -142,10 +140,17 @@ class StatusFiltersTest extends TestCase
             'status_id' => $statusInProgress->id,
         ]);
 
-        $response = $this->get(route('idea.index', ['status' => 'In Progress']));
-        $response->assertSuccessful();
-        $response->assertSee('In Progress', false);
-        // $response->assertDontSee('Considering', false);
+        Livewire::withQueryParams(['status' => 'In Progress'])
+        ->test(IdeasIndex::class)
+            ->assertViewHas('ideas', function ($ideas) {
+                // dd($ideas);
+                return
+                    $ideas->count() === 3
+                    &&
+                    $ideas->first()->status->name === 'In Progress';
+            });
+
+
     }
 
     /**
