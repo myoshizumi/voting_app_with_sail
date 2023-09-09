@@ -7,6 +7,7 @@ services:
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
+                NODE_VERSION: '18'
         image: sail-7.4/app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
@@ -56,6 +57,17 @@ services:
             PMA_HOST: mysql
         networks:
             - sail
+    mail:
+        image: mailhog/mailhog
+        container_name: mailhog
+        ports:
+            - "1025:1025"
+            - "8025:8025"
+        networks:
+            - sail
+        environment:
+          MH_STORAGE: maildir
+          MH_MAILDIR_PATH: /tmp
 networks:
     sail:
         driver: bridge
