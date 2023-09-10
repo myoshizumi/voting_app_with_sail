@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Filters;
 
 use App\Http\Livewire\IdeasIndex;
 use Tests\TestCase;
@@ -22,19 +22,7 @@ class StatusFiltersTest extends TestCase
      */
     public function index_page_contains_status_filters_livewire_component()
     {
-        $user = User::factory()->create();
-
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
-        $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
-        ]);
+        Idea::factory()->create();
 
         $this->get(route('idea.index'))
             ->assertSeeLivewire('status-filters');
@@ -46,19 +34,7 @@ class StatusFiltersTest extends TestCase
      */
     public function show_page_contains_status_filters_livewire_component()
     {
-        $user = User::factory()->create();
-
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
-        $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
-        ]);
+        $idea = Idea::factory()->create();
 
         $this->get(route('idea.show', $idea))
             ->assertSeeLivewire('status-filters');
@@ -70,26 +46,14 @@ class StatusFiltersTest extends TestCase
      */
     public function shows_correct_status_count()
     {
-        $user = User::factory()->create();
-
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
         $statusImplemented = Status::factory()->create(['id' => 4, 'name' => 'implemented']);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusImplemented->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusImplemented->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
         ]);
 
         Livewire::test(StatusFilters::class)
@@ -103,45 +67,31 @@ class StatusFiltersTest extends TestCase
      */
     public function filtering_works_when_query_string_in_place()
     {
-        $user = User::factory()->create();
-
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
         $statusConsidering = Status::factory()->create(['name' => 'Considering']);
         $statusInProgress = Status::factory()->create(['name' => 'In Progress']);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusConsidering->id,
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusConsidering->id,
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusInProgress->id,
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusInProgress->id,
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusInProgress->id,
         ]);
 
         Livewire::withQueryParams(['status' => 'In Progress'])
-        ->test(IdeasIndex::class)
+            ->test(IdeasIndex::class)
             ->assertViewHas('ideas', function ($ideas) {
                 // dd($ideas);
                 return
@@ -149,8 +99,6 @@ class StatusFiltersTest extends TestCase
                     &&
                     $ideas->first()->status->name === 'In Progress';
             });
-
-
     }
 
     /**
@@ -159,18 +107,10 @@ class StatusFiltersTest extends TestCase
      */
     public function show_page_does_not_show_selected_status()
     {
-        $user = User::factory()->create();
-
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
         $statusImplemented = Status::factory()->create(['id' => 4, 'name' => 'implemented']);
 
         $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusImplemented->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
         ]);
 
         $response = $this->get(route('idea.show', $idea));
@@ -184,18 +124,10 @@ class StatusFiltersTest extends TestCase
      */
     public function index_page_shows_selected_status()
     {
-        $user = User::factory()->create();
-
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
         $statusImplemented = Status::factory()->create(['id' => 4, 'name' => 'implemented']);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusImplemented->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
         ]);
 
         $response = $this->get(route('idea.index'));

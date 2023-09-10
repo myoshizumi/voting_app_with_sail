@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    use  RefreshDatabase;
+    use RefreshDatabase;
 
     /**
      * @test
@@ -18,7 +18,6 @@ class UserTest extends TestCase
     public function user_can_generate_gravatar_default_image_when_no_email_found_first_charactor_a()
     {
         $user = User::factory()->create([
-            'name' => "Andrew",
             "email" => "andrew@example.com"
         ]);
 
@@ -38,7 +37,6 @@ class UserTest extends TestCase
     public function user_can_generate_gravatar_default_image_when_no_email_found_first_charactor_0()
     {
         $user = User::factory()->create([
-            'name' => "Zack",
             "email" => "0Zack@example.com"
         ]);
 
@@ -58,7 +56,6 @@ class UserTest extends TestCase
     public function user_can_generate_gravatar_default_image_when_no_email_found_first_charactor_9()
     {
         $user = User::factory()->create([
-            'name' => "Zack",
             "email" => "9Zack@example.com"
         ]);
 
@@ -78,7 +75,6 @@ class UserTest extends TestCase
     public function user_can_generate_gravatar_default_image_when_no_email_found_first_charactor_z()
     {
         $user = User::factory()->create([
-            'name' => "Zack",
             "email" => "Zack@example.com"
         ]);
 
@@ -97,12 +93,10 @@ class UserTest extends TestCase
     public function can_check_if_user_is_an_admin()
     {
         $user = User::factory()->make([
-            'name' => 'test',
             'email' => 'test@example.com'
         ]);
 
         $userB = User::factory()->make([
-            'name' => 'test2',
             'email' => 'test2@example.com'
         ]);
 

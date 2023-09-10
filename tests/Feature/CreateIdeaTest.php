@@ -25,7 +25,7 @@ class CreateIdeaTest extends TestCase
 
         $response->assertSuccessful();
         $response->assertSee('Please login to create an idea.');
-        $response->assertDontSee('Let us know what you would like and we\'ll take a look over!');
+        $response->assertDontSee('Let us know what you would like and we\'ll take a look over!', false);
     }
 
     /**
@@ -77,7 +77,6 @@ class CreateIdeaTest extends TestCase
         $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
 
         $statusOpen = Status::factory()->create(['name' => 'Open']);
 
@@ -97,6 +96,11 @@ class CreateIdeaTest extends TestCase
         $this->assertDatabaseHas('ideas', [
             'title' => 'My First Idea'
         ]);
+
+        $this->assertDatabaseHas('votes', [
+            'idea_id' => 1,
+            'user_id' => 1,
+        ]);
     }
 
     /**
@@ -108,7 +112,6 @@ class CreateIdeaTest extends TestCase
         $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
 
         $statusOpen = Status::factory()->create(['name' => 'Open']);
 
