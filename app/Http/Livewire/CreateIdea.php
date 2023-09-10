@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Category;
 use App\Models\Idea;
+use App\Models\Vote;
 use Livewire\Component;
-use Symfony\Component\HttpFoundation\Response;
+use App\Models\Category;
+use Illuminate\Http\Response;
 
 class CreateIdea extends Component
 {
@@ -20,10 +21,13 @@ class CreateIdea extends Component
 
     public function createIdea()
     {
-        if (auth()->check()) {
-            $this->validate();
+        if (auth()->guest()) {
+            abort(Response::HTTP_FORBIDDEN);
+        }
 
-            Idea::create([
+        $this->validate();
+
+        $idea = Idea::create([
                 'user_id' => auth()->id(),
                 'category_id' => $this->category,
                 'status_id' => 1,
@@ -31,14 +35,13 @@ class CreateIdea extends Component
                 'description' => $this->description,
             ]);
 
-            session()->flash('success_message', 'Idea was added successfully.');
+        $idea->vote(auth()->user());
 
-            $this->reset();
+        session()->flash('success_message', 'Idea was added successfully.');
 
-            return redirect()->route('idea.index');
-        }
+        $this->reset();
 
-        abort(Response::HTTP_FORBIDDEN);
+        return redirect()->route('idea.index');
     }
 
     public function render()
