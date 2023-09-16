@@ -17,17 +17,17 @@ x-show="isOpen"
     $nextTick(() => $refs.confirmButton.focus())
     "
 x-init="
-        window.livewire.on('{{ $eventToCloseModal }}', () => {
+        Livewire.on('{{ $eventToCloseModal }}', () => {
             isOpen = false
         })
     "
-class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+class="relative z-20" aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <div 
     x-show.transition.opacity="isOpen"
     x-transition.duration.400
     class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-  <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+  <div class="fixed inset-0 z-20 w-screen overflow-y-auto">
     <div 
         x-show.opacity="isOpen"
         x-transition.duration.400
