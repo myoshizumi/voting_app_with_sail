@@ -42,7 +42,6 @@
                         No ideas were found ...
                     </div>
                 </div>
-           
         @endforelse
     </div> {{-- end ideas-container --}}
     <div class="my-8">
