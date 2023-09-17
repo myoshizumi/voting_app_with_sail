@@ -50,7 +50,7 @@ x-data
                     <div>&bull;</div>
                     <div>{{ $idea->category->name }}</div>
                     <div>&bull;</div>
-                    <div class="text-gray-900">3 Comments</div>
+                    <div class="text-gray-900">{{ $idea->comments_count }} Comments</div>
                 </div>
                 <div 
                 x-data="{isOpen: false}"
