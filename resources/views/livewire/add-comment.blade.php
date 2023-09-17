@@ -9,11 +9,11 @@
             if(message.updateQueue[0].payload.event === 'commentWasAdded' && message.component.fingerprint.name === 'idea-comments'){
                 const lastComment = document.querySelector('.comment-container:last-child')
                 lastComment.scrollIntoView({ behavior: 'smooth'})
-                lastComment.classList.add('bg-green')
+                lastComment.classList.add('bg-green-50')
                 lastComment.classList.remove('bg-white')
                 setTimeout(() => {
                     lastComment.classList.add('bg-white')
-                    lastComment.classList.remove('bg-green')
+                    lastComment.classList.remove('bg-green-50')
                 }, 5000)            }
         })
     "
