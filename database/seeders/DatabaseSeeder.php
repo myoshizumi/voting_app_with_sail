@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
         }
 
         foreach (Idea::all() as $idea) {
-            Comment::factory(50)->existing()->create(['idea_id' => $idea->id]);
+            Comment::factory(10)->existing()->create(['idea_id' => $idea->id]);
         }
     }
 }
