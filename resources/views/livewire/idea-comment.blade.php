@@ -19,6 +19,8 @@
                     @endif
                     <div>{{ $comment->created_at->diffForHumans() }}</div>
                 </div>
+
+                @auth
                 <div
                     class="flex items-center space-x-2"
                     x-data="{ isOpen: false }"
@@ -37,12 +39,25 @@
                             @click.away="isOpen = false"
                             @keydown.escape.window="isOpen = false"
                         >
+
+                            @can('update', $comment)
+                            <li><a href="#" 
+                                @click.prevent="
+                                    isOpen = false
+                                    Livewire.emit('setEditComment', {{ $comment->id }})
+                                    {{-- $dispatch('custom-show-edit-modal') --}}
+                                    "
+                                class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Edit Comment</a>
+                            </li>
+                            @endcan
+
                             <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Mark as Spam</a></li>
                             <li><a href="#" class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Delete Post</a></li>
                         </ul>
 
                     </div>
                 </div>
+                @endauth
             </div>
         </div>
     </div>
