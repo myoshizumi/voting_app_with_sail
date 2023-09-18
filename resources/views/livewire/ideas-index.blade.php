@@ -15,6 +15,7 @@
                 <option value="My Ideas">My Ideas</option>
                 @admin
                     <option value="Spam Ideas">Spam Ideas</option>
+                    <option value="Spam Comments">Spam Comments</option>
                 @endadmin
             </select>
         </div>
@@ -45,7 +46,7 @@
         @endforelse
     </div> {{-- end ideas-container --}}
     <div class="my-8">
-        {{-- {{ $ideas->links() }} --}}
-        {{ $ideas->appends(request()->query())->links() }}
+        {{ $ideas->links() }}
+        {{-- {{ $ideas->appends(request()->query())->links() }} --}}
     </div>
 </div>
