@@ -10,7 +10,7 @@
     position: absolute;
     display: block;
     top: 0;
-    left: -40px;
+    left: -39px;
     content: "";
     width: 3px;
     height: 100%;
@@ -33,11 +33,15 @@
     position: absolute;
     display: block;
     top: 60px;
-    left:-40px;
+    left:-39px;
     width: 3px;
     content: "";
     height: calc(100% - 60px);
     background: theme('colors.gray-background');
+}
+
+.is-status-update.comment-container:last-child:after {
+    left: -40px;
 }
 
 .is-status-update::before {

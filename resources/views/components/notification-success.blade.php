@@ -52,6 +52,10 @@
             Livewire.on('commentWasMarkedAsNotSpam', message => {
                 showNotification(message)
             })
+
+            Livewire.on('statusWasUpdated', message => {
+                showNotification(message)
+            })
         @endif
     "
     x-show="isOpen"
