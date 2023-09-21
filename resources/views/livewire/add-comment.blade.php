@@ -6,16 +6,17 @@
         })
 
         Livewire.hook('message.processed', (message, component) => {
-            {{-- if(message.updateQueue[0].method === 'gotoPage' || message.updateQueue[0].method === 'nextPage' || message.updateQueue[0].method === 'previousPage')  --}}
+            {{-- Pagination --}}
             if(['gotoPage', 'previousPage', 'nextPage'].includes(message.updateQueue[0].method))
             {
                 const firstComment = document.querySelector('.comment-container:first-child')
                 firstComment.scrollIntoView({ behavior: 'smooth'})
 
             }
+
+            {{-- Adding Comment --}}
             if(
                 ['commentWasAdded', 'statusWasUpdated'].includes(message.updateQueue[0].payload.event)
-                {{-- (message.updateQueue[0].payload.event === 'commentWasAdded' || message.updateQueue[0].payload.event === 'statusWasUpdated') --}}
              && message.component.fingerprint.name === 'idea-comments'){
                 const lastComment = document.querySelector('.comment-container:last-child')
                 lastComment.scrollIntoView({ behavior: 'smooth'})
@@ -24,8 +25,20 @@
                 setTimeout(() => {
                     lastComment.classList.add('bg-white')
                     lastComment.classList.remove('bg-green-50')
-                }, 5000)            }
+                }, 5000)            
+            }
         })
+
+        @if (session('scrollToComment'))
+            const commentToScrollTo = document.querySelector('#comment-{{ session('scrollToComment') }}')
+            commentToScrollTo.scrollIntoView({ behavior: 'smooth'})
+            commentToScrollTo.classList.add('bg-green-50')
+            commentToScrollTo.classList.remove('bg-white')
+            setTimeout(() => {
+                commentToScrollTo.classList.add('bg-white')
+                commentToScrollTo.classList.remove('bg-green-50')
+            }, 5000)
+        @endif
     "
     class="relative"
 >

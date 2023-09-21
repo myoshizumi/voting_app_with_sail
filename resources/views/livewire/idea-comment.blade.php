@@ -1,7 +1,7 @@
 <div 
-    class="
-@if ($comment->is_status_update) is-status-update
- {{ Str::kebab($comment->status->name)}} @endif comment-container relative bg-white rounded-xl transition duration-500 ease-in flex mt-4">
+    id="comment-{{ $comment->id }}"
+    class="@if ($comment->is_status_update) is-status-update
+    {{ Str::kebab($comment->status->name)}} @endif comment-container relative bg-white rounded-xl transition duration-500 ease-in flex mt-4">
     <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
         <div class="flex-none">
             <a href="#">

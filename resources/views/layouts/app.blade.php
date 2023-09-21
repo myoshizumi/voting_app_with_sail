@@ -24,6 +24,7 @@
                 @if (Route::has('login'))
                     <div class="px-6 py-4">
                         @auth
+                        <div class="flex items-center space-x-4">
                             <form action="{{ route('logout') }}" method="POST">
                             @csrf
 
@@ -33,6 +34,8 @@
                                 {{ __('Log out') }}
                             </a>
                             </form>
+                            <livewire:comment-notifications />
+                        </div>
                         @else
                             <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -98,6 +101,14 @@
             <x-notification-success
                 :redirect="true"
                 message-to-display="{{ session('success_message') }}"
+            />
+        @endif
+        
+        @if (session('error_message'))
+            <x-notification-success
+                type="error"
+                :redirect="true"
+                message-to-display="{{ session('error_message') }}"
             />
         @endif
         
