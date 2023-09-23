@@ -25,6 +25,7 @@ class RegistrationTest extends TestCase
 
         $response->assertStatus(200);
     }
+    
     /**
      * @test
      * @group registration
@@ -37,7 +38,18 @@ class RegistrationTest extends TestCase
 
         $response = $this->actingAs($user)->get('/register');
 
-        $response->assertStatus(200);
+        $response->assertRedirect(RouteServiceProvider::HOME);
+    }
+
+    /**
+     * @test
+     * @group registration
+     */
+    public function guest_user_cannot_access_to_the_registration()
+    {
+        $response = $this->get('/register');
+
+        $response->assertRedirect(RouteServiceProvider::HOME);
     }
 
     /**
