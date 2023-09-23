@@ -815,12 +815,6 @@ select {
 .mt-8 {
   margin-top: 2rem;
 }
-.line-clamp-2 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-}
 .line-clamp-3 {
   overflow: hidden;
   display: -webkit-box;
@@ -920,6 +914,9 @@ select {
 .w-4 {
   width: 1rem;
 }
+.w-40 {
+  width: 10rem;
+}
 .w-44 {
   width: 11rem;
 }
@@ -1010,6 +1007,15 @@ select {
 }
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+@keyframes pulse {
+
+  50% {
+    opacity: .5;
+  }
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .cursor-default {
   cursor: default;
@@ -1500,6 +1506,9 @@ select {
 .opacity-100 {
   opacity: 1;
 }
+.mix-blend-luminosity {
+  mix-blend-mode: luminosity;
+}
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1652,7 +1661,6 @@ select {
 .is-status-update {
     border-width: 1px;
     border-image-source: linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
-    border-image-slice: 1;
     background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
     background-origin: border-box;
     background-clip: content-box, border-box;

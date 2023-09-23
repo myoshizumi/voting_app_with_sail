@@ -5,7 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <title>{{ $title ?? 'Voting_App' }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
@@ -45,10 +50,12 @@
                         @endauth
                     </div>
                 @endif
-
-                <a href="#">
-                    <img src="https://www.gravatar.com/avatar/000000000000000000000?d=mp" alt="avatar" class="w-10 h-10 rounded-full">
-                </a>
+                
+                @auth
+                    <a href="#">
+                        <img src="{{ auth()->user()->getAvatar() }}" alt="avatar" class="w-10 h-10 rounded-full">
+                    </a>
+                @endauth
             </div>
         </header>
 
@@ -73,22 +80,9 @@
                     
                         </p>
                     </div>
-
-                    @auth
                         <livewire:create-idea />
-                    @else
-                        <div class="my-6 text-center">
-                            <a href="{{ route('login') }}" class="inline-block justify-center w-1/2 h-11 text-xs text-white bg-blue font-semibold rounded-xl border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3">
-                                Login                           
-                            </a>
-                            <a href="{{ route('register') }}" class="inline-block justify-center w-1/2 h-11 text-xs bg-gray-200 font-semibold rounded-xl border border-gray-200 hover:border-gray-400 transition duration-150 ease-in px-6 py-3 mt-4">
-                                Sign Up
-                            </a>
-                        </div>
-                    @endauth
                 </div>
             </div>
-
             <div class="w-full md:w-175 px-2 md:px-0">
                 <livewire:status-filters />
                 <div class="mt-8">
