@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
