@@ -1,0 +1,23 @@
+ ⨯ add comment livewire component renders
+ ⨯ add comment form does not render when user is logged out
+
+  FAIL  Tests\Feature\Comments\ShowCommentsTest
+  ⨯ idea comments livewire component renders
+  ⨯ idea comment livewire component renders
+  ⨯ no comments shows appropriate message
+  ⨯ list of comments shows on idea page
+  ⨯ op badge shows if author of idea comments on idea
+  ⨯ comment pagination works
+
+    FAIL  Tests\Feature\Filters\StatusFiltersTest
+  ⨯ show page contains status filters livewire component
+
+   FAIL  Tests\Feature\ShowIdeasTest
+  ⨯ single idea shows corretly on the show page
+  ⨯ same idea title different slugs
+  ⨯ in app back button works when index page visited first
+  ⨯ in app back button works when show page only page visited
+
+   FAIL  Tests\Feature\VoteShowPageTest
+  ⨯ show page contains idea show livewire component
+  ⨯ show page correctly receives votes count

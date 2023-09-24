@@ -24,6 +24,9 @@ class RegistrationTest extends TestCase
         $response = $this->actingAs($user)->get('/register');
 
         $response->assertStatus(200);
+        $response->assertSee("register");
+        $response->assertSee("Name");
+        $response->assertSee("Confirm Password");
     }
     
     /**
@@ -64,7 +67,7 @@ class RegistrationTest extends TestCase
 
         $response = $this->actingAs($user)->post('/register', [
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => 'test1@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);
