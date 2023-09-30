@@ -5,7 +5,7 @@
                 <div class="overflow-hidden">
                     <table class="min-w-full text-left text-sm font-light">
                         <thead
-                            class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600">
+                            class="border-b bg-white font-medium">
                             <tr>
                             <th scope="col" class="px-6 py-4">#</th>
                             <th scope="col" class="px-6 py-4">name</th>

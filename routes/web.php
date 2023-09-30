@@ -19,7 +19,8 @@ Route::get('/', [IdeaController::class, 'index'])->name('idea.index');
 Route::get('/ideas/{idea:slug}', [IdeaController::class, 'show'])
 // ->middleware(['auth'])
 ->name('idea.show');
-Route::resource('/users', UserController::class)->only(['index', 'destroy'])->middleware('auth');
+
+Route::get('/users', [UserController::class, 'index'])->name('user.index')->middleware('auth');
 
 
 require __DIR__ . '/auth.php';

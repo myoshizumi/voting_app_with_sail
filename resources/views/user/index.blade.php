@@ -10,7 +10,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
 
-        <title>{{ $title ?? 'Voting_App' }}</title>
+        <title>Admin Page</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
@@ -87,10 +87,8 @@
                             background-origin: border-box;
                             background-clip: content-box, border-box;
                     ">
-                    <livewire:users-index 
-                    :key="$user->id"
-                    :users="$users"
-                /></div>
+                          <livewire:users-index />
+                    </div>
                 </div>
             </div>
         </main>
