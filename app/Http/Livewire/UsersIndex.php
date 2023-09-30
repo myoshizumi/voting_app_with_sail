@@ -13,7 +13,7 @@ class UsersIndex extends Component
     {
         $this->users = User::all();
     }
-    
+
     public function render()
     {
         return view('livewire.users-index', [

@@ -20,7 +20,7 @@ Route::get('/ideas/{idea:slug}', [IdeaController::class, 'show'])
 // ->middleware(['auth'])
 ->name('idea.show');
 
-Route::get('/users', [UserController::class, 'index'])->name('user.index')->middleware('auth');
+Route::get('/users', [UserController::class, 'index'])->name('user.index')->middleware('admin');
 
 
 require __DIR__ . '/auth.php';

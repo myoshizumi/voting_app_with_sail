@@ -8,11 +8,15 @@ use Illuminate\Http\Response;
 
 class DeleteUser extends Component
 {
-    public $user;
+    public User $user;
 
-    public function mount(User $user)
+    protected $listeners = ['setDeleteUser'];
+
+    public function setDeleteUser($userId)
     {
-        $this->user = $user;
+        $this->user = User::findOrFail($userId);
+
+        $this->emit('deleteUserWasSet');
     }
 
     public  function deleteUser()
@@ -22,6 +26,8 @@ class DeleteUser extends Component
         }
 
         User::destroy($this->user->id);
+
+        $this->emit('userWasDeleted', 'User was deleted!');
 
         return redirect()->route('user.index');
     }
