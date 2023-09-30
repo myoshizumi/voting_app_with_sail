@@ -27,8 +27,10 @@ class DeleteUser extends Component
 
         User::destroy($this->user->id);
 
-        $this->emit('userWasDeleted', 'User was deleted!');
+        $this->emit('userWasDeleted');
 
+        session()->flash('success_message', 'User was deleted successfully!');
+        
         return redirect()->route('user.index');
     }
 
