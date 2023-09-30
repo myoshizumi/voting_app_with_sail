@@ -68,6 +68,11 @@
                 showNotification(message)
             })
 
+            Livewire.on('userWasDeleted', message => {
+                isError = false
+                showNotification(message)
+            })
+
             Livewire.on('statusWasUpdatedError', message => {
                 isError = true
                 showNotification(message)

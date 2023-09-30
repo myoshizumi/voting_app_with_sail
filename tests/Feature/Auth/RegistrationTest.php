@@ -61,11 +61,9 @@ class RegistrationTest extends TestCase
      */
     public function admin_can_register_new_users()
     {
-        $user = User::factory()->make([
-            'email' => 'test@example.com'
-        ]);
+        $userAdmin = User::factory()->admin()->create();
 
-        $response = $this->actingAs($user)->post('/register', [
+        $response = $this->actingAs($userAdmin)->post('/register', [
             'name' => 'Test User',
             'email' => 'test1@example.com',
             'password' => 'password',
