@@ -16,7 +16,7 @@ class ThanksMessageController extends Controller
      */
     public function index()
     {
-        return view('thanks-message.index', ['users' => User::all(),]);
+        return view('thanks-message.index');
     }
 
     /**
