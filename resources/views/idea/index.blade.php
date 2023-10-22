@@ -21,7 +21,7 @@
             
                 </p>
             </div>
-                <livewire:create-idea />
+            <livewire:create-idea />
         </div>
     </div>
     <div class="w-full md:w-175 px-2 md:px-0">

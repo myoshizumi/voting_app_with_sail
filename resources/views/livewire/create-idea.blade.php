@@ -40,7 +40,7 @@
             </div>
         
           <div>
-                @if (session('success_message'))
+                {{-- @if (session('success_message'))
                     <div 
                         x-data="{ isVisible: true }"
                         x-init="
@@ -53,7 +53,7 @@
                         class="text-green mt-4">
                         {{ session('success_message') }}
                     </div>
-                @endif
+                @endif --}}
             </div> 
         </form>
     @else

@@ -3,9 +3,9 @@ x-data
 @click="const target = $event.target.tagName.toLowerCase()
         const ignores = ['button','svg','path','a', 'img']
         const ideaLink = $event.target.closest('.idea-container').querySelector('.idea-link')
-
-!ignores.includes(target) && ideaLink.click()"        class="idea-container hover:shadow-md transition duration-150 ease-in bg-white rounded-xl flex cursor-pointer"
->
+        !ignores.includes(target) && ideaLink.click()"       
+        class="idea-container hover:shadow-md transition duration-150 ease-in bg-white rounded-xl flex cursor-pointer"
+        >
     <div class="hidden md:block border-r border-gray-100 px-5 py-8">
         <div class="text-center">
             <div class="font-semibold text-2xl @if($hasVoted) text-blue @endif">{{ $votesCount }}</div>
