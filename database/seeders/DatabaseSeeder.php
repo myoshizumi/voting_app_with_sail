@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Idea;
 use App\Models\Status;
+use App\Models\ThanksMessage;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Database\Seeder;
@@ -49,6 +50,8 @@ class DatabaseSeeder extends Seeder
                 }
             }
         }
+
+        ThanksMessage::factory(20)->existing()->create();
 
         foreach (Idea::all() as $idea) {
             Comment::factory(10)->existing()->create(['idea_id' => $idea->id]);
