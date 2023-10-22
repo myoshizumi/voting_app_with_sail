@@ -31,15 +31,15 @@
                         @auth
                         <div class="flex items-center space-x-4">
                             @admin
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                <a href="/users" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Manage employee</a>
-                                <a href="/thanks-messeges" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Thanks Messages</a>
-                            @endif
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                    <a href="/users" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Manage employee</a>
+                                @endif
                             @endadmin
 
                             <form action="{{ route('logout') }}" method="POST">
                             @csrf
+                            <a href="/thanks-messeges" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Thanks Messages</a>
 
                             <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

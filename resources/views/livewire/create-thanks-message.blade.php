@@ -11,9 +11,9 @@
                         @endforeach
                     </select>
                 </div>
-                @error('thanksTo')
-                    <p class="text-red text-xs mt-1">{{ $message }}</p>
-                @enderror
+                    @error('thanksTo')
+                        <p class="text-red text-xs mt-1">{{ $message }}</p>
+                    @enderror
             
                 <div class="">
                     <div class="mb-2">理由</div>
@@ -30,23 +30,6 @@
                         <span class="ml-1">投稿する</span>
                     </button>
                 </div>
-            
-            <div>
-                    @if (session('success_message'))
-                        <div 
-                            x-data="{ isVisible: true }"
-                            x-init="
-                                setTimeout(() => {
-                                    isVisible = false
-                                }, 3000)
-                            "
-                            x-show="isVisible"
-                            x-transition.duration.1000ms
-                            class="text-green mt-4">
-                            {{ session('success_message') }}
-                        </div>
-                    @endif
-                </div> 
             </form>
         </div>
     </div>
