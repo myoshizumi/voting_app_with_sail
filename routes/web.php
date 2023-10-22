@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\RankingManagement;
 use App\Http\Controllers\ThanksMessageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,7 @@ Route::get('/ideas/{idea:slug}', [IdeaController::class, 'show'])
 Route::get('/thanks-messeges', [ThanksMessageController::class, 'index'])->name('thanks-message.index')->middleware(['auth']);
 
 Route::get('/users', [UserController::class, 'index'])->name('user.index')->middleware('admin');
+Route::get('/ranking-management', RankingManagement::class)->middleware('admin');
 
 
 require __DIR__ . '/auth.php';

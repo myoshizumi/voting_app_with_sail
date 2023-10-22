@@ -39,7 +39,8 @@
 
                             <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <a href="/thanks-messeges" class="ml-4 text-sm text-gray-700 dark:text-gray-500">Thanks Messages</a>
+                            <a href="/thanks-messeges" class="mx-2 text-sm text-gray-700 dark:text-gray-500">Thanks Messages</a>
+                            <a href="/ranking-management" class="mx-2 text-sm text-gray-700 dark:text-gray-500">ranking page</a>
 
                             <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

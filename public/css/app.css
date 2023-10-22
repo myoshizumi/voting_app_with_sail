@@ -870,6 +870,9 @@ select {
 .h-20 {
   height: 5rem;
 }
+.h-22 {
+  height: 5.5rem;
+}
 .h-4 {
   height: 1rem;
 }
@@ -991,6 +994,12 @@ select {
 .flex-shrink-0 {
   flex-shrink: 0;
 }
+.basis-1\/2 {
+  flex-basis: 50%;
+}
+.basis-1\/4 {
+  flex-basis: 25%;
+}
 .origin-top {
   transform-origin: top;
 }
@@ -1053,6 +1062,9 @@ select {
 }
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.flex-row {
+  flex-direction: row;
 }
 .flex-col {
   flex-direction: column;
