@@ -18,7 +18,8 @@ class ThanksMessagesIndex extends Component
     public function mount(ThanksMessage $thanksMessage)
     {
         // $this->thanksMessage = $thanksMessage;
-        $this->thanksMessages = ThanksMessage::all()->sortByDesc('id')->take(5);
+        // $this->thanksMessages = ThanksMessage::all()->sortByDesc('id')->take(5);
+        $this->thanksMessages = ThanksMessage::select('id', 'reason', 'created_at')->orderByDesc('id')->take(5)->get();
     }
 
     // public function thanksMessageWasConfirmed()
@@ -30,7 +31,7 @@ class ThanksMessagesIndex extends Component
     {
         return view(
             'livewire.thanks-messages-index',
-            ["thanks_messages" => ThanksMessage::all()]
+            ["thanks_messages" => ThanksMessage::query()->with('user')]
         );
     }
 }

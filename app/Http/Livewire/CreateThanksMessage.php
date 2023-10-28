@@ -12,22 +12,23 @@ class CreateThanksMessage extends Component
 {
     use WithAuthRedirects;
 
+    public $thanksToId;
     public $thanksTo;
     public $thanksFrom;
-    public $user;
+    public $users;
     public $reason;
     public $thanksMessage;
 
     protected $rules = [
-        'thanksTo' => 'required',
         'reason' => 'required|min:3|max:399',
     ];
     protected $listeners = ['setConfirmThanksMessage'];
 
-    public function mount(User $user, ThanksMessage $thanksMessage)
+    public function mount(ThanksMessage $thanksMessage)
     {
         $this->thanksMessage = $thanksMessage;
-        $this->user = $user;
+        $this->users = User::select('name', 'id')->get();
+        // $this->users = User::all();
     }
 
     public function checkThanksMessage()
@@ -53,7 +54,8 @@ class CreateThanksMessage extends Component
         $thanksMessage = ThanksMessage::create([
             'user_id' => auth()->id(),
             'thanks_from' => auth()->user()->name,
-            'thanks_to' => $this->thanksTo,
+            'thanks_to_id' => $this->thanksToId,
+            'thanks_to' => $this->users->find($this->thanksToId)->name,
             'reason' => $this->reason,
         ]);
 
@@ -68,6 +70,8 @@ class CreateThanksMessage extends Component
 
     public function render()
     {
-        return view('livewire.create-thanks-message', ['users' => User::all(),]);
+        return view('livewire.create-thanks-message', [
+            'users' => User::query()->with('thanksMessage'),
+        ]);
     }
 }

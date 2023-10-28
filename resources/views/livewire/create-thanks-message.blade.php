@@ -5,16 +5,16 @@
             <form wire:submit.prevent="checkThanksMessage" action="#" method="POST" class="space-y-4 px-4 py-6">
                 <div>
                     <div class="mb-2">対象者</div>
-                    <select wire:model.defer="thanksTo" name="thanksTo" id="thanksTo" class="w-full bg-gray-100 text-sm rounded-xl border-none px-4 py-2">
+                    <select wire:model.defer="thanksToId" name="thanksToId" id="thanksToId" class="w-full bg-gray-100 text-sm rounded-xl border-none px-4 py-2">
                         <option hidden>選択してください</option>
                         @foreach ($users as $user)
                             @if($user->id !== auth()->user()->id)
-                                <option value="{{ $user->name }}">{{ $user->name }}</option>
+                                <option value="{{ $user->id, $user->name }}">{{ $user->name }}</option>
                             @endif
                         @endforeach
                     </select>
                 </div>
-                    @error('thanksTo')
+                    @error('thanksToId')
                         <p class="text-red text-xs mt-1">{{ $message }}</p>
                     @enderror
             

@@ -17,6 +17,7 @@ class ThanksMessageFactory extends Factory
         return [
             'user_id' => User::factory(),
             'thanks_to' => $this->faker->lastName(),
+            'thanks_to_id' => $this->faker->numberBetween(1, 20),
             'thanks_from' => $this->faker->lastName(),
             'reason' => $this->faker->paragraph(5)
         ];

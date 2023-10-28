@@ -20,6 +20,7 @@ class CreateThanksMessagesTable extends Migration
                 ->constrained();
             $table->string('thanks_from');
             $table->string('thanks_to');
+            $table->bigInteger('thanks_to_id');
             $table->text('reason');
             $table->timestamps();
         });
