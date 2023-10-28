@@ -77,6 +77,11 @@
                 isError = true
                 showNotification(message)
             })
+
+            {{-- Livewire.on('thanksMessageWasConfirmed', message => {
+                isError = false
+                showNotification(message)
+            }) --}}
         @endif
     "
     x-show="isOpen"
