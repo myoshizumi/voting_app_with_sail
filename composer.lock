@@ -3927,16 +3927,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v5.4.32",
+            "version": "v5.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "cbcd80a4c36f59772d62860fdb0cb6a38da63fd2"
+                "reference": "4da1713e88cf9c44bd4bf65f54772681222fcbec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/cbcd80a4c36f59772d62860fdb0cb6a38da63fd2",
-                "reference": "cbcd80a4c36f59772d62860fdb0cb6a38da63fd2",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/4da1713e88cf9c44bd4bf65f54772681222fcbec",
+                "reference": "4da1713e88cf9c44bd4bf65f54772681222fcbec",
                 "shasum": ""
             },
             "require": {
@@ -3983,7 +3983,7 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v5.4.32"
+                "source": "https://github.com/symfony/http-foundation/tree/v5.4.34"
             },
             "funding": [
                 {
@@ -3999,7 +3999,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-20T15:40:25+00:00"
+            "time": "2023-12-27T11:45:35+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -5251,16 +5251,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.4.32",
+            "version": "v5.4.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "91bf4453d65d8231688a04376c3a40efe0770f04"
+                "reference": "e3f98bfc7885c957488f443df82d97814a3ce061"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/91bf4453d65d8231688a04376c3a40efe0770f04",
-                "reference": "91bf4453d65d8231688a04376c3a40efe0770f04",
+                "url": "https://api.github.com/repos/symfony/string/zipball/e3f98bfc7885c957488f443df82d97814a3ce061",
+                "reference": "e3f98bfc7885c957488f443df82d97814a3ce061",
                 "shasum": ""
             },
             "require": {
@@ -5317,7 +5317,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v5.4.32"
+                "source": "https://github.com/symfony/string/tree/v5.4.34"
             },
             "funding": [
                 {
@@ -5333,7 +5333,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-11-26T13:43:46+00:00"
+            "time": "2023-12-09T13:20:28+00:00"
         },
         {
             "name": "symfony/translation",
