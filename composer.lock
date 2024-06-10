@@ -3627,16 +3627,16 @@
         },
         {
             "name": "symfony/error-handler",
-            "version": "v5.4.39",
+            "version": "v5.4.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/error-handler.git",
-                "reference": "9e02a6e831d6c2dbc5f96c8ff5314d453ecd53cd"
+                "reference": "c6c8f965a87b22d5005a7806783c7f10ae7e58cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/error-handler/zipball/9e02a6e831d6c2dbc5f96c8ff5314d453ecd53cd",
-                "reference": "9e02a6e831d6c2dbc5f96c8ff5314d453ecd53cd",
+                "url": "https://api.github.com/repos/symfony/error-handler/zipball/c6c8f965a87b22d5005a7806783c7f10ae7e58cd",
+                "reference": "c6c8f965a87b22d5005a7806783c7f10ae7e58cd",
                 "shasum": ""
             },
             "require": {
@@ -3678,7 +3678,7 @@
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/error-handler/tree/v5.4.39"
+                "source": "https://github.com/symfony/error-handler/tree/v5.4.40"
             },
             "funding": [
                 {
@@ -3694,7 +3694,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-18T08:26:06+00:00"
+            "time": "2024-05-31T14:33:22+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
